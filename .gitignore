@@ -1,0 +1,31 @@
+# dependencies
+node_modules
+
+# build
+dist
+dist-ssr
+
+# env — keep .env.example as the empty template
+.env
+.env.*
+!.env.example
+
+# logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# vite / typescript
+*.local
+.vite
+*.tsbuildinfo
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.idea
+.vscode/*
+!.vscode/extensions.json

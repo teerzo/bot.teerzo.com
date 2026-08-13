@@ -1,0 +1,221 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, Segoe UI, system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #e8e6f0;
+  background: #121018;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, #3b2a6b 0%, transparent 40%),
+    #121018;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page {
+  width: min(760px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 80px;
+  display: grid;
+  gap: 20px;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 2.2rem;
+  letter-spacing: -0.03em;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #b49cff;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.muted {
+  margin: 0;
+  color: #9b96ab;
+}
+
+.card {
+  background: #1c1826;
+  border: 1px solid #2d283b;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.banner {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #3b1d27;
+  border: 1px solid #7a3148;
+  color: #ffc0cb;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.status-grid dt {
+  color: #9b96ab;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status-grid dd {
+  margin: 6px 0 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.badge-ok {
+  background: #16351f;
+  color: #7dff9a;
+}
+
+.badge-off {
+  background: #3b1d27;
+  color: #ff9aa8;
+}
+
+.badge-muted {
+  background: #2a2636;
+  color: #c4bfd4;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.form label {
+  display: grid;
+  gap: 6px;
+  color: #c4bfd4;
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #3a344c;
+  background: #14111c;
+  color: inherit;
+}
+
+input:focus {
+  outline: 2px solid #7c5cff;
+  outline-offset: 1px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 9px 14px;
+  background: #7c5cff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: #2a2636;
+  color: #e8e6f0;
+}
+
+.btn-danger {
+  background: #8b2d42;
+}
+
+.command-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.command-row {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #161320;
+  border: 1px solid #2d283b;
+}
+
+.command-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.command-meta code {
+  font-size: 0.95rem;
+}
+
+.command-response {
+  margin: 0;
+  color: #c4bfd4;
+}
+
+.command-edit,
+.row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.command-edit input {
+  flex: 1 1 220px;
+}

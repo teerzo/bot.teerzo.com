@@ -1,0 +1,29 @@
+name: bot.teerzo.com
+on:
+  push:
+    branches: [main]
+jobs:
+  build_and_deploy:
+    environment: prod
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      CI: false
+      VITE_API_URL: ${{ secrets.VITE_API_URL }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Vite Build
+        run: npm run build
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.S3_BUCKET_REGION }}
+      - name: Sync dist/ to s3 bucket
+        run: aws s3 sync dist/ s3://${{ secrets.S3_BUCKET }}
+      - name: Invalidate cloudfront distribution
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
