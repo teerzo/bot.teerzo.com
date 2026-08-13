@@ -34,15 +34,22 @@ The UI is at **http://localhost:5173**.
 
 Pushes to `main` build the Vite app and sync `dist/` to S3, then invalidate CloudFront — same pattern as [teerzo.com](https://github.com/teerzo/teerzo.com).
 
-Create a GitHub **prod** environment on this repo and add these secrets:
+Create a GitHub **prod** environment on this repo.
+
+Secrets:
 
 | Secret | Purpose |
 | --- | --- |
 | `AWS_ACCESS_KEY_ID` | Deploy IAM user |
 | `AWS_SECRET_ACCESS_KEY` | Deploy IAM user |
-| `S3_BUCKET` | Target bucket name |
-| `S3_BUCKET_REGION` | Bucket region |
 | `CLOUDFRONT_DISTRIBUTION_ID` | Distribution to invalidate |
 | `VITE_API_URL` | Bot API origin, baked in at build time |
+
+Variables:
+
+| Variable | Purpose |
+| --- | --- |
+| `S3_BUCKET` | Target bucket name |
+| `S3_BUCKET_REGION` | Bucket region |
 
 On the bot, set `FRONTEND_ORIGIN` to `https://bot.teerzo.com`.
